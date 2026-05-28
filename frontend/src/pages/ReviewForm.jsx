@@ -10,10 +10,10 @@ import {
 } from '../services/reviewService.js';
 
 const initialForm = {
-  titulo: '',
-  descripcion: '',
+  restaurante: '',
   calificacion: '5',
-  restaurante: ''
+  fechaVisita: '',
+  observaciones: ''
 };
 
 function ReviewForm() {
@@ -52,10 +52,10 @@ function ReviewForm() {
         }
 
         setForm({
-          titulo: review.titulo,
-          descripcion: review.descripcion,
+          restaurante: review.restaurante,
           calificacion: String(review.calificacion),
-          restaurante: review.restaurante
+          fechaVisita: review.fechaVisita ? review.fechaVisita.split('T')[0] : '',
+          observaciones: review.observaciones
         });
         setFormBlocked(false);
       } catch (requestError) {
@@ -74,13 +74,13 @@ function ReviewForm() {
   };
 
   const validateForm = () => {
-    if (!form.titulo || !form.descripcion || !form.calificacion || !form.restaurante) {
+    if (!form.restaurante || !form.calificacion || !form.fechaVisita || !form.observaciones) {
       return 'Todos los campos son obligatorios';
     }
 
-    if (form.titulo.trim().length < 3) return 'El titulo debe tener al menos 3 caracteres';
-    if (form.descripcion.trim().length < 10) return 'La descripcion debe tener al menos 10 caracteres';
-    if (form.restaurante.trim().length < 2) return 'El restaurante debe tener al menos 2 caracteres';
+    if (form.restaurante.trim().length < 2) return 'El nombre del restaurante debe tener al menos 2 caracteres';
+    if (form.observaciones.trim().length < 10) return 'Las observaciones deben tener al menos 10 caracteres';
+    if (isNaN(Date.parse(form.fechaVisita))) return 'La fecha de visita no es valida';
 
     const rating = Number(form.calificacion);
     if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
@@ -128,28 +128,17 @@ function ReviewForm() {
         <ErrorMessage message={error} />
 
         <label>
-          Restaurante
+          Nombre del Restaurante
           <input name="restaurante" value={form.restaurante} onChange={handleChange} disabled={formBlocked} />
         </label>
 
         <label>
-          Titulo
-          <input name="titulo" value={form.titulo} onChange={handleChange} disabled={formBlocked} />
+          Fecha de Visita
+          <input type="date" name="fechaVisita" value={form.fechaVisita} onChange={handleChange} disabled={formBlocked} />
         </label>
 
         <label>
-          Descripcion
-          <textarea
-            name="descripcion"
-            rows="5"
-            value={form.descripcion}
-            onChange={handleChange}
-            disabled={formBlocked}
-          />
-        </label>
-
-        <label>
-          Calificacion
+          Calificación
           <select name="calificacion" value={form.calificacion} onChange={handleChange} disabled={formBlocked}>
             <option value="1">1 - Muy mala</option>
             <option value="2">2 - Mala</option>
@@ -157,6 +146,17 @@ function ReviewForm() {
             <option value="4">4 - Buena</option>
             <option value="5">5 - Excelente</option>
           </select>
+        </label>
+
+        <label>
+          Observaciones
+          <textarea
+            name="observaciones"
+            rows="5"
+            value={form.observaciones}
+            onChange={handleChange}
+            disabled={formBlocked}
+          />
         </label>
 
         <button className="button primary full" type="submit" disabled={saving || formBlocked}>

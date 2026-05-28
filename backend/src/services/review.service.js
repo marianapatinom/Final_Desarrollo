@@ -1,8 +1,8 @@
 import Review from '../models/Review.js';
 import { AppError } from '../utils/AppError.js';
 
-const validateReviewData = ({ titulo, descripcion, calificacion, restaurante }) => {
-  if (!titulo || !descripcion || !calificacion || !restaurante) {
+const validateReviewData = ({ restaurante, calificacion, fechaVisita, observaciones }) => {
+  if (!restaurante || !calificacion || !fechaVisita || !observaciones) {
     throw new AppError('Todos los campos de la reseña son obligatorios', 400);
   }
 
@@ -11,16 +11,16 @@ const validateReviewData = ({ titulo, descripcion, calificacion, restaurante }) 
     throw new AppError('La calificacion debe ser un numero entero entre 1 y 5', 400);
   }
 
-  if (titulo.trim().length < 3) {
-    throw new AppError('El titulo debe tener al menos 3 caracteres', 400);
-  }
-
-  if (descripcion.trim().length < 10) {
-    throw new AppError('La descripcion debe tener al menos 10 caracteres', 400);
-  }
-
   if (restaurante.trim().length < 2) {
-    throw new AppError('El restaurante debe tener al menos 2 caracteres', 400);
+    throw new AppError('El nombre del restaurante debe tener al menos 2 caracteres', 400);
+  }
+
+  if (observaciones.trim().length < 10) {
+    throw new AppError('Las observaciones deben tener al menos 10 caracteres', 400);
+  }
+
+  if (isNaN(Date.parse(fechaVisita))) {
+    throw new AppError('La fecha de visita no es valida', 400);
   }
 };
 
@@ -34,10 +34,10 @@ export const createReview = async (reviewData, userId) => {
   validateReviewData(reviewData);
 
   return Review.create({
-    titulo: reviewData.titulo,
-    descripcion: reviewData.descripcion,
-    calificacion: Number(reviewData.calificacion),
     restaurante: reviewData.restaurante,
+    calificacion: Number(reviewData.calificacion),
+    fechaVisita: reviewData.fechaVisita,
+    observaciones: reviewData.observaciones,
     usuario: userId
   });
 };
@@ -54,10 +54,10 @@ export const updateReview = async (reviewId, reviewData, userId) => {
     throw new AppError('No tienes permiso para editar esta reseña', 403);
   }
 
-  review.titulo = reviewData.titulo;
-  review.descripcion = reviewData.descripcion;
-  review.calificacion = Number(reviewData.calificacion);
   review.restaurante = reviewData.restaurante;
+  review.calificacion = Number(reviewData.calificacion);
+  review.fechaVisita = reviewData.fechaVisita;
+  review.observaciones = reviewData.observaciones;
 
   await review.save();
   return review.populate('usuario', 'nombre email');

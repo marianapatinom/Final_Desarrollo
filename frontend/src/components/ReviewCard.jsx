@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Edit, Star, Trash2 } from 'lucide-react';
+import { Edit, Star, Trash2, Calendar } from 'lucide-react';
 import { useAuth } from '../context/AuthContext.jsx';
 
 function ReviewCard({ review, onDelete }) {
@@ -12,12 +12,25 @@ function ReviewCard({ review, onDelete }) {
     day: 'numeric'
   });
 
+  const fechaVisita = review.fechaVisita
+    ? new Date(review.fechaVisita).toLocaleDateString('es-CO', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC'
+      })
+    : 'No especificada';
+
   return (
     <article className="review-card">
       <div className="review-card__header">
         <div>
-          <p className="restaurant">{review.restaurante}</p>
-          <h3>{review.titulo}</h3>
+          <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--primary-gold)', margin: 0 }}>
+            {review.restaurante}
+          </h3>
+          <p style={{ display: 'flex', alignItems: 'center', gap: '6px', margin: '8px 0 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            <Calendar size={14} /> Visita: {fechaVisita}
+          </p>
         </div>
         <span className="rating">
           <Star size={16} fill="currentColor" />
@@ -25,11 +38,13 @@ function ReviewCard({ review, onDelete }) {
         </span>
       </div>
 
-      <p className="description">{review.descripcion}</p>
+      <p className="description" style={{ fontStyle: 'italic' }}>
+        "{review.observaciones}"
+      </p>
 
       <footer className="review-card__footer">
         <span>
-          Por <strong>{review.usuario?.nombre || 'Usuario'}</strong> · {createdAt}
+          Por <strong>{review.usuario?.nombre || 'Usuario'}</strong> · Creado el {createdAt}
         </span>
 
         {isOwner && (
