@@ -1,5 +1,11 @@
 # Backend - Restaurant Reviews API
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
 API REST construida con Node.js, Express, MongoDB, Mongoose y JWT para gestionar reseñas de restaurantes.
 
 ## Requisitos
@@ -28,6 +34,13 @@ JWT_SECRET=change_this_secret_for_development
 
 ```bash
 npm run dev
+```
+
+### Sembrar Datos de Prueba (Opcional)
+Para poblar automáticamente la base de datos MongoDB local con opiniones reales de los integrantes del equipo, ejecuta:
+
+```bash
+npm run seed
 ```
 
 Para produccion:
@@ -77,9 +90,9 @@ Crear reseña:
 
 ```json
 {
-  "titulo": "Excelente comida",
-  "descripcion": "La atencion fue muy buena y la comida estuvo deliciosa.",
+  "restaurante": "La Mesa Feliz",
   "calificacion": 5,
-  "restaurante": "La Mesa Feliz"
+  "fechaVisita": "2026-05-28",
+  "observaciones": "La atencion fue muy buena y la comida estuvo deliciosa."
 }
 ```

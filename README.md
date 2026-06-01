@@ -1,5 +1,19 @@
 # Proyecto Full Stack - Reseñas de Restaurantes
 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+
+## 👥 Integrantes del Equipo
+*   **Mariana Patiño Múnera**
+*   **Mariana Gutiérrez Restrepo**
+*   **Sebastian López Gutiérrez**
+
+---
+
 Aplicacion web full stack para gestionar reseñas de restaurantes. Incluye autenticacion JWT, CRUD de reseñas, validacion de dueño para editar/eliminar y visualizacion publica de todas las reseñas.
 
 ## Stack
@@ -82,6 +96,14 @@ Ejecuta el backend:
 npm run dev
 ```
 
+### 3. Sembrar Base de Datos (Opcional)
+Para cargar automáticamente opiniones de prueba reales de los integrantes en la base de datos local de MongoDB, ejecuta en la carpeta `backend`:
+
+```bash
+npm run seed
+```
+
+
 ### 2. Frontend
 
 En otra terminal:
@@ -139,10 +161,10 @@ Reseña:
 
 ```json
 {
-  "titulo": "Muy recomendado",
-  "descripcion": "El servicio fue rapido, la comida deliciosa y el ambiente muy agradable.",
+  "restaurante": "Sabor Central",
   "calificacion": 5,
-  "restaurante": "Sabor Central"
+  "fechaVisita": "2026-05-28",
+  "observaciones": "El servicio fue rapido, la comida deliciosa y el ambiente muy agradable."
 }
 ```
 
