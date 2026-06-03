@@ -96,7 +96,7 @@ npm run dev
 ```
 
 ### 3. Sembrar Base de Datos (Opcional)
-Para cargar automáticamente opiniones de prueba reales de los integrantes en la base de datos local de MongoDB, ejecuta en la carpeta `backend`:
+Para cargar automáticamente 2 usuarios y 15 opiniones de prueba en la base de datos local de MongoDB, ejecuta en la carpeta `backend`:
 
 ```bash
 npm run seed

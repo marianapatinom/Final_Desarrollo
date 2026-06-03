@@ -68,6 +68,83 @@ const seedData = async () => {
         fechaVisita: new Date('2026-05-29T00:00:00Z'),
         observaciones: 'Las pizzas artesanales son increíbles, la masa delgada y crujiente con ingredientes frescos. Recomiendo mucho la pizza rústica y los jugos naturales del día.',
         usuario: createdUsers[0]._id
+      },
+      {
+        restaurante: 'La Provincia',
+        calificacion: 5,
+        fechaVisita: new Date('2026-05-18T00:00:00Z'),
+        observaciones: 'El lugar tiene una presentación impecable y platos muy bien logrados. La pasta estaba en su punto y la atención fue cercana durante toda la visita.',
+        usuario: createdUsers[0]._id
+      },
+      {
+        restaurante: 'Mondongos',
+        calificacion: 4,
+        fechaVisita: new Date('2026-05-10T00:00:00Z'),
+        observaciones: 'Porciones generosas, sabor tradicional y servicio rápido. Es una buena opción para almorzar en familia, especialmente si se busca comida típica antioqueña.',
+        usuario: createdUsers[1]._id
+      },
+      {
+        restaurante: 'Carmen',
+        calificacion: 5,
+        fechaVisita: new Date('2026-05-12T00:00:00Z'),
+        observaciones: 'La experiencia fue muy completa, con platos creativos y sabores equilibrados. El ambiente es elegante sin sentirse demasiado formal.',
+        usuario: createdUsers[0]._id
+      },
+      {
+        restaurante: 'Alambique',
+        calificacion: 4,
+        fechaVisita: new Date('2026-05-26T00:00:00Z'),
+        observaciones: 'La decoración es hermosa y la carta tiene combinaciones interesantes. Probamos varias entradas y todas llegaron con buena temperatura y excelente sabor.',
+        usuario: createdUsers[1]._id
+      },
+      {
+        restaurante: 'OCI.Mde',
+        calificacion: 5,
+        fechaVisita: new Date('2026-05-30T00:00:00Z'),
+        observaciones: 'Muy buena cocina de autor. Los platos tienen técnica, buena presentación y sabores diferentes. El personal explicó muy bien cada recomendación.',
+        usuario: createdUsers[0]._id
+      },
+      {
+        restaurante: 'La Matriarca',
+        calificacion: 4,
+        fechaVisita: new Date('2026-05-08T00:00:00Z'),
+        observaciones: 'Comida colombiana con buen sazón y un ambiente agradable. El chicharrón estaba crocante y las guarniciones fueron abundantes.',
+        usuario: createdUsers[1]._id
+      },
+      {
+        restaurante: 'Rocoto',
+        calificacion: 5,
+        fechaVisita: new Date('2026-05-22T00:00:00Z'),
+        observaciones: 'Excelente opción de comida peruana. El ceviche estaba fresco, con buen nivel de acidez, y los platos principales llegaron muy bien servidos.',
+        usuario: createdUsers[0]._id
+      },
+      {
+        restaurante: 'La Pampa',
+        calificacion: 4,
+        fechaVisita: new Date('2026-05-16T00:00:00Z'),
+        observaciones: 'Muy buena parrilla, carnes jugosas y acompañamientos bien preparados. El lugar es cómodo y funciona muy bien para una cena tranquila.',
+        usuario: createdUsers[1]._id
+      },
+      {
+        restaurante: 'Bao Bei',
+        calificacion: 3,
+        fechaVisita: new Date('2026-05-05T00:00:00Z'),
+        observaciones: 'La propuesta asiática es interesante y los baos tienen buen sabor. El servicio fue amable, aunque algunos platos tardaron más de lo esperado.',
+        usuario: createdUsers[0]._id
+      },
+      {
+        restaurante: 'Burdo',
+        calificacion: 4,
+        fechaVisita: new Date('2026-05-27T00:00:00Z'),
+        observaciones: 'Buen ambiente para compartir con amigos. Las hamburguesas tienen buen tamaño, los cócteles son creativos y la música estuvo a volumen adecuado.',
+        usuario: createdUsers[1]._id
+      },
+      {
+        restaurante: 'Sushi Market',
+        calificacion: 4,
+        fechaVisita: new Date('2026-05-21T00:00:00Z'),
+        observaciones: 'Los rollos estaban frescos y bien armados. La carta tiene variedad suficiente y la atención fue eficiente durante toda la noche.',
+        usuario: createdUsers[0]._id
       }
     ];
 

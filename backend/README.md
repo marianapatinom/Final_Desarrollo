@@ -37,7 +37,7 @@ npm run dev
 ```
 
 ### Sembrar Datos de Prueba (Opcional)
-Para poblar automáticamente la base de datos MongoDB local con opiniones reales de los integrantes del equipo, ejecuta:
+Para poblar automáticamente la base de datos MongoDB local con 2 usuarios y 15 opiniones de prueba, ejecuta:
 
 ```bash
 npm run seed
