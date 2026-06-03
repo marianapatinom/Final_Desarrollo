@@ -10,7 +10,6 @@
 ## 👥 Integrantes del Equipo
 *   **Mariana Patiño Múnera**
 *   **Mariana Gutiérrez Restrepo**
-*   **Sebastian López Gutiérrez**
 
 ---
 

@@ -33,11 +33,6 @@ const seedData = async () => {
         nombre: 'Mariana Gutiérrez Restrepo',
         email: 'mariana.gutierrez@example.com',
         password: hashedPassword
-      },
-      {
-        nombre: 'Sebastian López Gutiérrez',
-        email: 'sebastian.lopez@example.com',
-        password: hashedPassword
       }
     ];
 
@@ -65,7 +60,7 @@ const seedData = async () => {
         calificacion: 5,
         fechaVisita: new Date('2026-05-15T00:00:00Z'),
         observaciones: 'Una experiencia gastronómica de alta cocina inigualable. Cada plato cuenta una historia y estimula todos los sentidos. El maridaje de vinos fue perfecto. Muy recomendado para ocasiones especiales.',
-        usuario: createdUsers[2]._id
+        usuario: createdUsers[1]._id
       },
       {
         restaurante: 'Pizzería Olivia',
